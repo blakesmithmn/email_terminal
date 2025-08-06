@@ -289,32 +289,10 @@ system = {
         } );
     },
 
-    whoami() {
-        return new Promise( ( resolve ) => {
-            resolve(
-                `${ serverDatabase.serverAddress }/${ userDatabase.userId }`
-            );
-        } );
-    },
-
     clear() {
         return new Promise( ( resolve ) => {
             setHeader();
             resolve( false );
-        } );
-    },
-
-    date() {
-        return new Promise( ( resolve ) => {
-            const date = new Date();
-            const time = `${ date.getHours() }:${ date.getMinutes() }:${ date.getSeconds() }`;
-            resolve( String( `${ serverDate.month } ${ serverDate.day } ${ serverDate.year } ${ time } ${ serverDate.reference }` ) );
-        } );
-    },
-
-    echo( args ) {
-        return new Promise( ( resolve ) => {
-            resolve( args.join( " " ) );
         } );
     },
 
@@ -430,13 +408,6 @@ system = {
     exit() {
         return new Promise( () => {
             location.reload();
-        } );
-    },
-
-    history() {
-        return new Promise( ( resolve ) => {
-            const messageList = history_.map( ( line, i ) => `[${ i }] ${ line }` ); // eslint-disable-line no-undef
-            resolve( messageList );
         } );
     },
 
